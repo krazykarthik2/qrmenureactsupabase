@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* 🔹 VIDEO BACKGROUND */
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: -1;
+}
+
+/* 🔹 HEADER */
+.site-header {
+  text-align: center;
+  padding: 30px 15px;
+}
+
+.site-header h1 {
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+}
+
+.site-header p {
+  opacity: 0.85;
+  margin-top: 6px;
+}
+
+/* 🔹 NAV BUTTONS */
+.nav-buttons {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.nav-buttons a {
+  text-decoration: none;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  font-size: 0.85rem;
+  transition: 0.3s;
+}
+
+.nav-buttons a:hover {
+  background: #ff9800;
+  color: #000;
+}
+
+/* 🔹 MENU SECTION */
+section {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* 🔹 MENU ITEM CARD */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  /* very light glass effect */
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(2.5px);
+
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 14px;
+
+  /* subtle border to define edges */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.menu-item img {
+  width: 82px;      /* ⬆ slightly bigger */
+  height: 82px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+
+.menu-text {
+  flex: 1;
+}
+
+.menu-text strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.menu-text small {
+  opacity: 0.7;
+  font-size: 0.75rem;
+}
+
+.menu-item span {
+  font-weight: bold;
+  color: #ffd54f;
+}
+
+/* 🔹 RESPONSIVE */
+@media (max-width: 480px) {
+  .site-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .menu-item {
+    padding: 10px;
+  }
+}
+/* two-price layout */
+.price-two {
+  justify-content: space-between;
+}
+
+.price-single {
+  margin-right: 20px;
+  color: #ffd54f;
+  font-weight: 600;
+}
+
+.price-double {
+  color: #ffcc80;
+  font-weight: 700;
+}
+/* spacing helper */
+.img-space {
+  width: 70px;
+}
+
+/* header row (titles) */
+.price-head {
+  background: transparent;
+  box-shadow: none;
+  padding-bottom: 4px;
+}
+
+.price-head small {
+  font-size: 0.7rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+/* rows with prices */
+.price-row {
+  justify-content: space-between;
+}
+
+/* price column */
+.price-col {
+  min-width: 80px;
+  text-align: center;
+}
+
+/* price colors */
+.price-single {
+  color: #ffd54f;
+  font-weight: 600;
+}
+
+.price-double {
+  color: #ffcc80;
+  font-weight: 700;
+}
