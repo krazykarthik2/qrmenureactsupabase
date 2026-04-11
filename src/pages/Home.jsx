@@ -44,7 +44,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col items-center pb-12">
       <Header 
         title="VIYA PURI CAFE" 
-        subtitle="Premium Menu" 
+        subtitle="Free Home Delivery above ₹ 200 /-" 
       />
       
       <main className="w-full max-w-6xl px-6">
@@ -56,7 +56,7 @@ export default function Home() {
           </div>
           <input
             type="text"
-            placeholder="Search our premium menu..."
+            placeholder="Search our menu..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-12 pr-12 py-4 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full outline-none text-white font-sans text-lg placeholder-white/30 hover:border-white/30 focus:border-[#ffd54f] focus:bg-black/60 transition-all shadow-xl"
