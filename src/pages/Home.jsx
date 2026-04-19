@@ -129,7 +129,7 @@ export default function Home() {
                 {/* Text Content */}
                 <div className="absolute bottom-0 left-0 w-full p-5 text-center transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                   <h2 className="font-serif text-xl md:text-2xl font-bold tracking-wide text-white drop-shadow-lg mb-1">
-                    {cat.title.trim()}
+                    {cat.title.replace(/[^\x00-\x7F]/g, "").trim()}
                   </h2>
                   <div className="w-8 h-0.5 bg-[#ffd54f] mx-auto scale-0 group-hover:scale-100 transition-transform duration-500 delay-100" />
                 </div>
