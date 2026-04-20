@@ -15,7 +15,7 @@ export default function AdminDashboard() {
   const [itemForm, setItemForm] = useState({ title: '', price: '', secondary_price: '', category_id: '', imageFile: null });
   
   const [editingCategory, setEditingCategory] = useState(null);
-  const [catForm, setCatForm] = useState({ id: '', title: '', subtitle: '', imageFile: null });
+  const [catForm, setCatForm] = useState({ id: '', title: '', subtitle: '', primary_label: '', secondary_label: '', imageFile: null });
   
   const [uploadError, setUploadError] = useState('');
   const [loading, setLoading] = useState(true);
@@ -197,6 +197,8 @@ export default function AdminDashboard() {
         id: catForm.id,
         title: catForm.title,
         subtitle: catForm.subtitle,
+        primary_label: catForm.primary_label,
+        secondary_label: catForm.secondary_label,
         image: finalImageUrl
       };
 
@@ -209,7 +211,7 @@ export default function AdminDashboard() {
       }
       
       setEditingCategory(null);
-      setCatForm({ id: '', title: '', subtitle: '', imageFile: null });
+      setCatForm({ id: '', title: '', subtitle: '', primary_label: '', secondary_label: '', imageFile: null });
       fetchData();
     } catch (err) {}
   };
@@ -402,7 +404,7 @@ export default function AdminDashboard() {
               <div className="flex justify-between items-center mb-8">
                 <h3 className="text-2xl font-serif">Manage Categories</h3>
                 <button 
-                  onClick={() => { setEditingCategory(null); setCatForm({ id: '', title: '', subtitle: '', imageFile: null }); }}
+                  onClick={() => { setEditingCategory(null); setCatForm({ id: '', title: '', subtitle: '', primary_label: '', secondary_label: '', imageFile: null }); }}
                   className="bg-[#ffd54f] text-black px-4 py-2 rounded-lg font-bold flex items-center gap-2"
                 >
                   <Plus size={18} /> Add Category
@@ -416,6 +418,8 @@ export default function AdminDashboard() {
                   <input type="text" placeholder="ID (e.g. tea_coffee)" required disabled={!!editingCategory} value={catForm.id} onChange={e => setCatForm({...catForm, id: e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, '')})} className="bg-white/5 border border-white/20 p-3 rounded-lg disabled:opacity-50" />
                   <input type="text" placeholder="Title (e.g. ☕ Tea&Coffee)" required value={catForm.title} onChange={e => setCatForm({...catForm, title: e.target.value})} className="bg-white/5 border border-white/20 p-3 rounded-lg" />
                   <input type="text" placeholder="Subtitle" value={catForm.subtitle} onChange={e => setCatForm({...catForm, subtitle: e.target.value})} className="bg-white/5 border border-white/20 p-3 rounded-lg md:col-span-2" />
+                  <input type="text" placeholder="Primary Price Label (Optional, e.g. Single)" value={catForm.primary_label} onChange={e => setCatForm({...catForm, primary_label: e.target.value})} className="bg-white/5 border border-white/20 p-3 rounded-lg" />
+                  <input type="text" placeholder="Secondary Price Label (Optional, e.g. Double)" value={catForm.secondary_label} onChange={e => setCatForm({...catForm, secondary_label: e.target.value})} className="bg-white/5 border border-white/20 p-3 rounded-lg" />
                   
                   <div className="md:col-span-2">
                     <label className="block text-sm text-white/50 mb-2">Category Image (Max 5MB)</label>
@@ -448,7 +452,7 @@ export default function AdminDashboard() {
                           <button onClick={() => moveCategory(cat, 'up')} disabled={isFirst} className={`p-1.5 rounded disabled:opacity-30 ${isFirst ? '' : 'hover:bg-white/20'}`}><ArrowUp size={16}/></button>
                           <button onClick={() => moveCategory(cat, 'down')} disabled={isLast} className={`p-1.5 rounded disabled:opacity-30 ${isLast ? '' : 'hover:bg-white/20'}`}><ArrowDown size={16}/></button>
                         </div>
-                        <button onClick={() => { setEditingCategory(cat); setCatForm({ id: cat.id, title: cat.title, subtitle: cat.subtitle || '', imageFile: null }); window.scrollTo(0, 0); }} className="p-2 bg-white/10 hover:bg-white/20 rounded-lg"><Edit2 size={16}/></button>
+                        <button onClick={() => { setEditingCategory(cat); setCatForm({ id: cat.id, title: cat.title, subtitle: cat.subtitle || '', primary_label: cat.primary_label || '', secondary_label: cat.secondary_label || '', imageFile: null }); window.scrollTo(0, 0); }} className="p-2 bg-white/10 hover:bg-white/20 rounded-lg"><Edit2 size={16}/></button>
                         <button onClick={() => deleteCategory(cat)} className="p-2 bg-red-500/20 text-red-400 hover:bg-red-500/40 rounded-lg"><Trash2 size={16}/></button>
                       </div>
                     </div>
